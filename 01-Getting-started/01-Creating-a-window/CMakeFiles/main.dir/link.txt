@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/main.dir/main.c.o CMakeFiles/main.dir/usr/include/glad/glad.c.o -o main  -lGLEW -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl 

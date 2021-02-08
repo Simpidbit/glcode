@@ -1,0 +1,3 @@
+/home/ghostworker/code/opengl/01-Getting-started/01-Creating-a-window/CMakeFiles/rebuild_cache.dir
+/home/ghostworker/code/opengl/01-Getting-started/01-Creating-a-window/CMakeFiles/edit_cache.dir
+/home/ghostworker/code/opengl/01-Getting-started/01-Creating-a-window/CMakeFiles/main.dir

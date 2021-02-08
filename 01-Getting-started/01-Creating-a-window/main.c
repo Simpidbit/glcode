@@ -1,5 +1,5 @@
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
-//#include <glad/glad.h>
 #include <assert.h>
 
 #define WIN_WID 800
@@ -38,6 +38,9 @@ int main()
     GLFWwindow* window = glfwCreateWindow(WIN_WID, WIN_HEIGHT, WIN_TITLE, 0, 0);
     assert(window != 0);
     glfwMakeContextCurrent(window);
+
+    // 初始化glad
+    gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
     // 设置视口
     glViewport(VIEW_BEGIN_X, VIEW_BEGIN_Y, VIEW_WID, VIEW_HEIGHT);

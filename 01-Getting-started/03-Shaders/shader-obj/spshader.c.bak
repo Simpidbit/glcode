@@ -1,0 +1,112 @@
+#include <spshader.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <simpidbit.h>
+
+void check_shader_complie(unsigned int shader)
+{
+    int  success;
+    char infolog[512];
+    glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+    if (!success) {
+        glGetShaderInfoLog(shader, 512, 0, infolog);
+        sperr(5, "Shader compile error!\n%s\n", infolog);
+    }
+}
+
+void check_program_link(unsigned int program)
+{
+    int  success;
+    char infolog[512];
+    glGetProgramiv(program, GL_LINK_STATUS, &success);
+    if (!success) {
+        glGetProgramInfoLog(program, 512, 0, infolog);
+        sperr(5, "Program link error!\n%s\n", infolog);
+    }
+}
+
+void spinit_shader(struct SPShader *shader, 
+                   const char *vfilename, const char *ffilename)
+{
+    shader->vshader = glCreateShader(GL_VERTEX_SHADER);
+    shader->fshader = glCreateShader(GL_FRAGMENT_SHADER);
+
+    if (vfilename) {
+        shader->vsur = spfile_read_heap(vfilename, SPBUFSIZ);
+        glShaderSource(shader->vshader, 1, (const char * const*)&shader->vsur, 0);
+        glCompileShader(shader->vshader);
+        check_shader_complie(shader->vshader);
+    }
+    if (ffilename) {
+        shader->fsur = spfile_read_heap(ffilename, SPBUFSIZ);
+        glShaderSource(shader->fshader, 1, (const char * const*)&shader->fsur, 0);
+        glCompileShader(shader->fshader);
+        check_shader_complie(shader->fshader);
+    }
+
+    shader->program = glCreateProgram();
+
+    glAttachShader(shader->program, shader->vshader);
+    glAttachShader(shader->program, shader->fshader);
+    glLinkProgram(shader->program);
+
+    check_program_link(shader->program);
+    glDeleteShader(shader->vshader);
+    glDeleteShader(shader->fshader);
+}
+
+void spuse_shader(struct SPShader *shader)
+{
+    glUseProgram(shader->program);
+}
+
+void set_uniform_1i(struct SPShader *shader, const char *name, int value)
+{ 
+    glUniform1i(glGetUniformLocation(shader->program, name), value); 
+}
+
+void set_uniform_1f(struct SPShader *shader, const char *name, float value)
+{ 
+    glUniform1f(glGetUniformLocation(shader->program, name), value);
+}
+
+void set_uniform_2i(struct SPShader *shader, const char *name,
+                    int value1, int value2)
+{ 
+    glUniform2i(glGetUniformLocation(shader->program, name),
+                value1, value2);
+}
+
+void set_uniform_2f(struct SPShader *shader, const char *name, float value1, float value2)
+{ 
+    glUniform2f(glGetUniformLocation(shader->program, name),
+                value1, value2);
+}
+
+void set_uniform_3i(struct SPShader *shader, const char *name,
+                    int value1, int value2, int value3)
+{ 
+    glUniform3i(glGetUniformLocation(shader->program, name),
+                value1, value2, value3);
+}
+
+void set_uniform_3f(struct SPShader *shader, const char *name,
+                    float value1, float value2, float value3)
+{ 
+    glUniform3f(glGetUniformLocation(shader->program, name),
+                value1, value2, value3);
+}
+
+void set_uniform_4i(struct SPShader *shader, const char *name,
+                    int value1, int value2, int value3, int value4)
+{ 
+    glUniform4i(glGetUniformLocation(shader->program, name),
+                value1, value2, value3, value4);
+}
+
+void set_uniform_4f(struct SPShader *shader, const char *name,
+                    float value1, float value2, float value3, float value4)
+{ 
+    glUniform4f(glGetUniformLocation(shader->program, name),
+                value1, value2, value3, value4);
+}

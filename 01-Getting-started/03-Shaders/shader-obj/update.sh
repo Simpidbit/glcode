@@ -1,5 +1,5 @@
-mv spshader.c.bak spshader.c
-gcc ./spshader.c ./glad.c -lGLEW -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -lsimpidbit -ldl -lm -o libspshader.so -fPIC -shared
+mv spshader.cpp.bak spshader.cpp
+g++ ./spshader.cpp ./glad.c -lGLEW -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -lsimpidbitxx -ldl -lm -o libspshader.so -fPIC -shared
 sudo cp ./libspshader.so /usr/lib
 sudo cp ./spshader.h /usr/include
-mv spshader.c spshader.c.bak
+mv spshader.cpp spshader.cpp.bak

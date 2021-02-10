@@ -7,4 +7,4 @@ aux_source_directory(. C_SRCs)
 
 add_executable(main ${C_SRCs})
 
-target_link_libraries(main GLEW glfw GL X11 pthread Xrandr Xi simpidbit dl spshader)
+target_link_libraries(main glfw GL simpidbit dl m spshader)

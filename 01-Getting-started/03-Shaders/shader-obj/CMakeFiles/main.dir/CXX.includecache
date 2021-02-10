@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ghostworker/code/opengl/01-Getting-started/03-Shaders/shader-obj/main.cpp
+glad/glad.h
+-
+GLFW/glfw3.h
+-
+simpidbit.h
+-
+spshader.h
+-
+assert.h
+-
+math.h
+-
+

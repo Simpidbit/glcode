@@ -1,0 +1,3 @@
+/home/ghostworker/code/opengl/01-Getting-started/02-Hello-Triangle/CMakeFiles/rebuild_cache.dir
+/home/ghostworker/code/opengl/01-Getting-started/02-Hello-Triangle/CMakeFiles/edit_cache.dir
+/home/ghostworker/code/opengl/01-Getting-started/02-Hello-Triangle/CMakeFiles/main.dir

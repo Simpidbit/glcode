@@ -1,0 +1,3 @@
+/home/ghostworker/code/opengl/01-Getting-started/03-Shaders/shader-obj/CMakeFiles/rebuild_cache.dir
+/home/ghostworker/code/opengl/01-Getting-started/03-Shaders/shader-obj/CMakeFiles/edit_cache.dir
+/home/ghostworker/code/opengl/01-Getting-started/03-Shaders/shader-obj/CMakeFiles/main.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/main.dir/glad.c.o CMakeFiles/main.dir/main.cpp.o -o main  -lglfw -lGL -lsimpidbit -ldl -lm -lspshader 
